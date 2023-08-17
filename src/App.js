@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home/Home";
+import Nav from "./components/Nav/Nav";
+import AllShirts from './components/AllShirts/AllShirts';
+import Shirt from './components/Shirt/Shirt';
+import NewShirt from './components/NewShirt/NewShirt';
+import EditShirt from './components/EditShirt/EditShirt';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shirts" element={<AllShirts />} />
+          <Route path="/shirts/create-shirt" element={<NewShirt />} />
+          <Route path="/shirts/:id" element={<Shirt />} />
+          <Route path="/shirts/:id/edit" element={<EditShirt />} />
+          <Route path="/404" element={<h1>404 Not Found!</h1>} />
+          <Route path="*" element={<h1>404 Not Found!</h1>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
