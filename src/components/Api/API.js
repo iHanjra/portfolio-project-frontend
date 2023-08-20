@@ -24,7 +24,15 @@ async function handleDeleteById(id) {
 async function getAllShirts() {
   try {
     let result = await Axios.get("/shirts");
+    return result;
+  } catch (e) {
+    return e;
+  }
+};
 
+async function getShirtById(id) {
+  try {
+    let result = await Axios.get(`/shirts/${id}`);
     return result;
   } catch (e) {
     return e;
@@ -41,4 +49,10 @@ async function updateShirtById(id, data) {
   }
 };
 
-export { createShirt, getAllShirts, updateShirtById, handleDeleteById };
+export {
+  createShirt,
+  getAllShirts,
+  updateShirtById,
+  handleDeleteById,
+  getShirtById,
+};

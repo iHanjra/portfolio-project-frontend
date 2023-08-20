@@ -11,7 +11,6 @@ function AllShirts() {
     async function fetchShirtsData() {
       try {
         let result = await getAllShirts();
-        console.log(result)
         const sortedShirts = result.data.sort((a, b) =>
           a.name.localeCompare(b.name)
         );
