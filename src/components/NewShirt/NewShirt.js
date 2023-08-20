@@ -114,8 +114,7 @@ function NewShirt() {
             type="checkbox"
             id="is_favorite"
             checked={isChecked}
-            onChange={(e) =>
-              setIsChecked(e.target.checked)}
+            onChange={(e) => setIsChecked(e.target.checked)}
           />
         </div>
 
