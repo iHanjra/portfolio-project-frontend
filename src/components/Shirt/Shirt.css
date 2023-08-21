@@ -1,0 +1,110 @@
+.shirt {
+	padding:20px;
+	text-align: center;
+	margin:0 auto;
+}
+
+.shirtDetails {
+	text-align: center;
+	padding: 15px;
+	max-width: 450px;
+	margin: 0 auto;
+}
+
+.shirtInfo {
+	padding: 15px 0;
+	width:300px;
+	margin: 0 auto;
+}
+.shirtInfo h2 {
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.shirt button {
+	margin:10px;
+	border-radius:10px;
+	border:none;
+	background-color: rgb(71 128 255);
+	font-weight: 700;
+	color:#fff;
+	padding:5px 10px;
+	width:100px;
+}
+
+.shirt a {
+	color:#000;
+	text-decoration: none;
+}
+
+.shirt a:hover {
+	text-decoration: underline;
+}
+
+.shirt img {
+	height:400px;
+}
+.shirt .button:hover {
+	background-color: rgb(43, 107, 245);
+}
+
+.shirtDetails span {
+	width:150px;
+	font-weight: 700;
+	display: inline-block;
+}
+
+.shirtDetails span::after {
+	content: ":";
+}
+
+.shirt .back-button {
+	background:none;
+	border:none;
+	color:rgba(0 0 0 / 0.3);
+	font-weight:700;
+	font-size:1.4rem;
+}
+
+.shirt .back-button:hover {
+	color:rgba(0 0 0 / 0.5);
+}
+
+.shirt .back-button::before {
+	content: "<";
+	margin-right:10px;
+}
+
+.shirtInfo p {
+	text-align: left;
+	margin-left: 50px;
+}
+
+.bottomNav {
+	text-align: left;
+}
+
+.shirt-deletion-container-navigation {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 25px;
+  background-color: rgb(198, 242, 255);
+}
+
+.shirt-deletion-container-navigation p {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.shirt-deletion-container-navigation ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.shirt-deletion-container-navigation ul li {
+  padding-left: 25px;
+  padding-right: 40px;
+  margin-bottom: 20px;
+}

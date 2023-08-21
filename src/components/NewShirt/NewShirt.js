@@ -129,7 +129,7 @@ function NewShirt() {
           <label htmlFor="image">Image</label>
           <br />
           <input
-            placeholder="image"
+            placeholder="Image"
             type="text"
             id="image"
             value={shirt?.image}

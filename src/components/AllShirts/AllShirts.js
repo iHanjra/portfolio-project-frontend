@@ -12,22 +12,43 @@ function AllShirts() {
   const [sizeFilter, setSizeFilter] = useState("all");
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
   const [sortOrder, setSortOrder] = useState("des");
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
-  async function fetchShirtsData() {
-    try {
-      let result = await getAllShirts();
-      const sortedShirts = result.data.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
+    async function fetchShirtsData() {
+      try {
+        let result = await getAllShirts();
+        const sortedShirts = result.data.sort(
+          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        );
 
-      setShirts(sortedShirts);
-    } catch (error) {
-      console.log(error);
+        setShirts(sortedShirts);
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
     fetchShirtsData();
   }, []);
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 300) {
+      setShowScrollButton(true);
+    } else {
+      setShowScrollButton(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const handleSortOrderChange = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -100,12 +121,18 @@ function AllShirts() {
           <option value="low-price">Price: low to high</option>
           <option value="high-price">Price: high to low</option>
         </select>
-        <Button className="sort-button" size="sm" onClick={handleSortOrderChange}>
+        <Button
+          className="sort-button"
+          size="sm"
+          onClick={handleSortOrderChange}
+        >
           Sort {sortOrder === "asc" ? "Ascending" : "Descending"}
         </Button>
 
         <div className="filter-sizes">
-          <label htmlFor="filter-sizes"><strong>Filter by size:</strong></label>
+          <label htmlFor="filter-sizes">
+            <strong>Filter by size:</strong>
+          </label>
           <select
             value={sizeFilter}
             onChange={handleSizeFilterChange}
@@ -121,7 +148,9 @@ function AllShirts() {
         </div>
 
         <div className="filter-colors">
-          <label htmlFor="filter-colors"><strong>Filter by color:</strong></label>
+          <label htmlFor="filter-colors">
+            <strong>Filter by color:</strong>
+          </label>
           <select
             value={colorFilter}
             onChange={handleColorFilterChange}
@@ -167,6 +196,11 @@ function AllShirts() {
             </Card>
           );
         })}
+        {showScrollButton && (
+          <button className="scroll-top-button" onClick={scrollToTop}>
+            &#8593;
+          </button>
+        )}
       </div>
     </div>
   );
