@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Nav.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,7 +9,6 @@ function Navigation() {
       expand="lg"
       className="bg-body-tertiary"
       collapseOnSelect
-      // fixed="top"
       data-bs-theme="dark"
     >
       <Container>
