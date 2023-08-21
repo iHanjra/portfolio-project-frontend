@@ -1,15 +1,18 @@
 import './App.css';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Navigation from "./components/Nav/Nav";
-import AllShirts from './components/AllShirts/AllShirts';
-import Shirt from './components/Shirt/Shirt';
-import NewShirt from './components/NewShirt/NewShirt';
-import EditShirt from './components/EditShirt/EditShirt';
+import Spinner from "./components/common/Spinner/Spinner";
+const Home = React.lazy(() => import("./components/Home/Home"));
+const Navigation = React.lazy(() => import("./components/Nav/Nav"));
+const AllShirts = React.lazy(() => import("./components/AllShirts/AllShirts"));
+const Shirt = React.lazy(() => import("./components/Shirt/Shirt"));
+const NewShirt = React.lazy(() => import("./components/NewShirt/NewShirt"));
+const EditShirt = React.lazy(() => import("./components/EditShirt/EditShirt"));
 
 function App() {
   return (
     <div className="App">
+      <React.Suspense fallback={<Spinner />}>
       <Router>
         <Navigation />
         <Routes>
@@ -22,6 +25,7 @@ function App() {
           <Route path="*" element={<h1>404 Not Found!</h1>} />
         </Routes>
       </Router>
+      </React.Suspense>
     </div>
   );
 }

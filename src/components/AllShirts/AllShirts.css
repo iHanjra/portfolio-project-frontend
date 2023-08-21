@@ -1,0 +1,43 @@
+.sidebar {
+    width: 15%;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+}
+
+.content {
+      width: 85%;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+.card {
+    margin-bottom: 30px;
+}
+
+.filter-sizes {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.total {
+    margin-top: 10px;
+}
+
+.sort-button {
+    margin-top: 10px;
+}
+
+.shirt-link {
+    color:#fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.shirt-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

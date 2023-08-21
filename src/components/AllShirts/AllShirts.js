@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllShirts } from "../Api/API";
 import "./AllShirts.css";
+import { Card, Button } from "react-bootstrap";
 
 function AllShirts() {
   const [shirts, setShirts] = useState([]);
@@ -87,69 +88,87 @@ function AllShirts() {
   );
 
   return (
-    <div className="all-shirts">
-      <label htmlFor="sort">Sort by: </label>
-      <select value={sortCriteria} onChange={handleSortChange} id="sort">
-        <option value="date">Date Added</option>
-        <option value="alphabetical">Alphabetically</option>
-        <option value="color">Color</option>
-        <option value="size">Size</option>
-        <option value="low-price">Price: low to high</option>
-        <option value="high-price">Price: high to low</option>
-      </select>
-      <button onClick={handleSortOrderChange}>
-       Sorting Order: {sortOrder === "asc" ? "Ascending" : "Descending"}
-      </button>
-      <div>
-        <label htmlFor="filter-sizes">Filter by size: </label>
-        <select
-          value={sizeFilter}
-          onChange={handleSizeFilterChange}
-          id="sort-sizes"
-        >
-          <option value="all">All Sizes</option>
-          {sizes.map((size) => (
-            <option key={size} value={size}>
-              {size}
-            </option>
-          ))}
+    <div className="container">
+      <div className="sidebar">
+        <label htmlFor="sort">
+          <strong>Sort by:</strong>{" "}
+        </label>
+        <select value={sortCriteria} onChange={handleSortChange} id="sort">
+          <option value="date">Date Added</option>
+          <option value="alphabetical">Alphabetically</option>
+          <option value="color">Color</option>
+          <option value="size">Size</option>
+          <option value="low-price">Price: low to high</option>
+          <option value="high-price">Price: high to low</option>
         </select>
+        <Button className="sort-button" size="sm" onClick={handleSortOrderChange}>
+          Sort {sortOrder === "asc" ? "Ascending" : "Descending"}
+        </Button>
+
+        <div className="filter-sizes">
+          <label htmlFor="filter-sizes"><strong>Filter by size:</strong></label>
+          <select
+            value={sizeFilter}
+            onChange={handleSizeFilterChange}
+            id="filter-sizes"
+          >
+            <option value="all">All Sizes</option>
+            {sizes.map((size) => (
+              <option key={size} value={size}>
+                {size}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="filter-colors">
+          <label htmlFor="filter-colors"><strong>Filter by color:</strong></label>
+          <select
+            value={colorFilter}
+            onChange={handleColorFilterChange}
+            id="filter-colors"
+          >
+            <option value="all">All Colors</option>
+            {uniqueColors.map((color) => (
+              <option key={color} value={color}>
+                {color}
+              </option>
+            ))}
+          </select>
+          <h4 className="total">Total Price of Shirts: ${total.toFixed(2)}</h4>
+        </div>
       </div>
-      <div>
-        <label htmlFor="filter-colors">Filter by color: </label>
-        <select
-          value={colorFilter}
-          onChange={handleColorFilterChange}
-          id="sort-colors"
-        >
-          <option value="all">All Colors</option>
-          {uniqueColors.map((color) => (
-            <option key={color} value={color}>
-              {color}
-            </option>
-          ))}
-        </select>
-      </div>
-      <h2>Total Shirt Price: ${total.toFixed(2)}</h2>
-      <ul>
+
+      <div class="content">
         {sortedShirts.map((shirt) => {
           return (
-            <li key={shirt.id}>
-              <img
+            <Card
+              style={{ width: "18rem" }}
+              key={shirt.id}
+              className="card bg-dark text-white"
+            >
+              <Card.Img
+                variant="top"
+                style={{ height: "20rem" }}
                 src={shirt.image}
                 alt="shirt"
                 onClick={() => navigate(`/shirts/${shirt.id}`)}
               />
-              <br />
-              <h2 onClick={() => navigate(`/shirts/${shirt.id}`)}>
-                {shirt.name}
-              </h2>
-              <h3>Size: {shirt.size}</h3>
-              <h3>${shirt.price}</h3>
-            </li>
+              <Card.Body>
+                <Card.Link
+                  className="shirt-link"
+                  style={{ color: "white" }}
+                  onClick={() => navigate(`/shirts/${shirt.id}`)}
+                >
+                  {shirt.name}
+                </Card.Link>
+                <Card.Text>Size: {shirt.size}</Card.Text>
+                <Card.Text>${shirt.price}</Card.Text>
+              </Card.Body>
+            </Card>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 }

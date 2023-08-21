@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import "./Nav.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,7 +10,7 @@ function Navigation() {
       expand="lg"
       className="bg-body-tertiary"
       collapseOnSelect
-      fixed="top"
+      // fixed="top"
       data-bs-theme="dark"
     >
       <Container>
