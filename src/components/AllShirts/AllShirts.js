@@ -191,6 +191,7 @@ function AllShirts() {
                   onClick={() => navigate(`/shirts/${shirt.id}`)}
                 >
                   {shirt.name}
+                  {shirt.is_favorite && <> 🥚</>}
                 </Card.Link>
                 <Card.Text>Size: {shirt.size}</Card.Text>
                 <Card.Text>${shirt.price}</Card.Text>
