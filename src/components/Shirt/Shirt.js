@@ -41,28 +41,35 @@ function Shirt() {
      }
   
      return (
-       <div className="game">
-         <section className="gameDetails">
+       <div className="shirt">
+         <section className="shirtDetails">
            <img
-             className="showGameImage"
+             className="showShirtImage"
              src={shirt?.image}
              alt="shirt"
              onClick={() => navigate(`/shirts/${shirt.id}`)}
            />
-           <div className="gameInfo">
-             <p className="gameDetailsName">
+           <div className="shirtInfo">
+             <p className="shirtDetailsName">
                <strong>{shirt?.name}</strong>
              </p>
 
-             <p className="gameDeveloper"> Color: {shirt?.color}</p>
-             <p className="gameGenre">Size: {shirt?.size}</p>
-             <p className="gameOriginalPrice">Price: ${shirt?.price}</p>
-             <p className="gameMultiplayer">
+             <p className="shirtColor"> Color: {shirt?.color}</p>
+             <p className="shirtSize">Size: {shirt?.size}</p>
+             <p className="shirtPrice">Price: ${shirt?.price}</p>
+             <p className="shirtFavorite">
                Favorite: {shirt?.is_favorite ? "Yes" : "No"}
              </p>
-             <p className="gameMultiplayer">Store: {shirt?.store}</p>
+             <a
+               href={shirt?.store}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="store-link"
+             >
+               {shirt?.store}
+             </a>
              <button
-               className="gameEdit"
+               className="shirtEdit"
                onClick={() => {
                  navigate(`/shirts/${id}/edit`);
                }}
@@ -77,7 +84,7 @@ function Shirt() {
          </section>
 
          <button
-           className="gameBack"
+           className="shirt-button"
            onClick={() => {
              navigate("/shirts");
            }}
@@ -86,7 +93,7 @@ function Shirt() {
          </button>
 
          {showConfirmation && (
-           <div className="game-deletion-container-navigation">
+           <div className="shirt-deletion-container-navigation">
              <p>
                <strong>Are you sure you want to delete this shirt?</strong>
              </p>

@@ -1,20 +1,13 @@
 .home {
     text-align: center;
-    padding: 3px;
+    padding: 4px;
+    height:420px;
 }
 
-.background {
-    background: url("https://cdn.discordapp.com/attachments/744268886832054353/1143068129937862766/FxgQ42yXgAIHk0b.png");
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 413px;
-    background-color: rgb(204 202 203);
-}
-
-html, body, #root, .App, .background {
+html, body, #root {
     height: 100%;
+}
+
+.home img {
+    height: 380px;
 }

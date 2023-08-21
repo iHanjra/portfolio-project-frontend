@@ -137,7 +137,7 @@ function NewShirt() {
           />
         </div>
 
-        <Button className="create-button">CREATE NEW SHIRT</Button>
+        <Button type="submit" className="create-button">CREATE NEW SHIRT</Button>
       </form>
     </div>
   );
