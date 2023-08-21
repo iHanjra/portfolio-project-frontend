@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Nav from "./components/Nav/Nav";
+import Navigation from "./components/Nav/Nav";
 import AllShirts from './components/AllShirts/AllShirts';
 import Shirt from './components/Shirt/Shirt';
 import NewShirt from './components/NewShirt/NewShirt';
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Nav />
+        <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shirts" element={<AllShirts />} />

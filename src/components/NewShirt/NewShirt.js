@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createShirt } from '../Api/API';
 import { useNavigate } from 'react-router-dom';
 import "./NewShirt.css";
+import { Button } from 'react-bootstrap';
 
 function NewShirt() {
   const [shirt, setShirt] = useState({
@@ -15,6 +16,7 @@ function NewShirt() {
   });
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
+  const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
 
   async function handleOnSubmit(event) {
     event.preventDefault();
@@ -71,14 +73,19 @@ function NewShirt() {
         <div className="create-size">
           <label htmlFor="size">Size</label>
           <br />
-          <input
-            placeholder="Size"
-            type="text"
+          <select
             id="size"
-            value={shirt?.size}
+            value={shirt.size}
             onChange={(e) => setShirt({ ...shirt, size: e.target.value })}
             required
-          />
+          >
+            <option value="">Select Size</option>
+            {sizes.map((size) => (
+              <option key={size} value={size}>
+                {size}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="create-price">
@@ -130,7 +137,7 @@ function NewShirt() {
           />
         </div>
 
-        <button className="create-button">CREATE NEW SHIRT</button>
+        <Button className="create-button">CREATE NEW SHIRT</Button>
       </form>
     </div>
   );

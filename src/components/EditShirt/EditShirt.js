@@ -16,6 +16,7 @@ function EditShirt() {
   });
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
+  const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +48,7 @@ function EditShirt() {
     }
   }
   return (
-  <div className="create-shirt">
+    <div className="create-shirt">
       <h2>Edit shirt</h2>
       <form className="create-shirt-form" onSubmit={handleOnSubmit}>
         <div className="create-name">
@@ -79,16 +80,20 @@ function EditShirt() {
         <div className="create-size">
           <label htmlFor="size">Size</label>
           <br />
-          <input
-            placeholder="Size"
-            type="text"
+          <select
             id="size"
             value={shirt.size}
             onChange={(e) => setShirt({ ...shirt, size: e.target.value })}
             required
-          />
+          >
+            {sizes.map((size) => (
+              <option key={size} value={size}>
+                {size}
+              </option>
+            ))}
+          </select>
         </div>
-
+        
         <div className="create-price">
           <label htmlFor="price">Price</label>
           <br />
