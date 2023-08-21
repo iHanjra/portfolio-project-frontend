@@ -41,10 +41,10 @@ function NewShirt() {
   }
   
   return (
-    <div className="create-shirt">
+    <div className="create-form-container">
       <h2>Add new shirt</h2>
-      <form className="create-shirt-form" onSubmit={handleOnSubmit}>
-        <div className="create-name">
+      <form className="create-container-form" onSubmit={handleOnSubmit}>
+        <div className="create-container-input">
           <label htmlFor="name">Name</label>
           <br />
           <input
@@ -57,7 +57,7 @@ function NewShirt() {
           />
         </div>
 
-        <div className="create-color">
+        <div className="create-container-input">
           <label htmlFor="color">Color</label>
           <br />
           <input
@@ -70,7 +70,7 @@ function NewShirt() {
           />
         </div>
 
-        <div className="create-size">
+        <div className="create-container-input">
           <label htmlFor="size">Size</label>
           <br />
           <select
@@ -88,7 +88,7 @@ function NewShirt() {
           </select>
         </div>
 
-        <div className="create-price">
+        <div className="create-container-input">
           <label htmlFor="price">Price</label>
           <br />
           <input
@@ -101,7 +101,7 @@ function NewShirt() {
           />
         </div>
 
-        <div className="create-store">
+        <div className="create-container-input">
           <label htmlFor="store">Store</label>
           <br />
           <input
@@ -114,7 +114,7 @@ function NewShirt() {
           />
         </div>
 
-        <div className="create-is_favorite">
+        <div className="create-container-input">
           <label htmlFor="is_favorite">Favorite</label>
           <br />
           <input
@@ -125,7 +125,7 @@ function NewShirt() {
           />
         </div>
 
-        <div className="create-image">
+        <div className="create-container-input">
           <label htmlFor="image">Image</label>
           <br />
           <input
@@ -137,7 +137,13 @@ function NewShirt() {
           />
         </div>
 
-        <Button type="submit" className="create-button">CREATE NEW SHIRT</Button>
+        <Button
+          style={{ margin: "10px" }}
+          type="submit"
+          className="create-button"
+        >
+          ADD NEW SHIRT
+        </Button>
       </form>
     </div>
   );

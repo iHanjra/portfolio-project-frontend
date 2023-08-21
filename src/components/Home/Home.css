@@ -4,10 +4,6 @@
     height:420px;
 }
 
-html, body, #root {
-    height: 100%;
-}
-
 .home img {
     height: 380px;
 }

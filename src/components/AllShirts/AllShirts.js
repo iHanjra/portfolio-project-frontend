@@ -11,8 +11,9 @@ function AllShirts() {
   const [colorFilter, setColorFilter] = useState("all");
   const [sizeFilter, setSizeFilter] = useState("all");
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortOrder, setSortOrder] = useState("des");
 
+  useEffect(() => {
   async function fetchShirtsData() {
     try {
       let result = await getAllShirts();
@@ -25,8 +26,6 @@ function AllShirts() {
       console.log(error);
     }
   }
-
-  useEffect(() => {
     fetchShirtsData();
   }, []);
 
@@ -139,7 +138,7 @@ function AllShirts() {
         </div>
       </div>
 
-      <div class="content">
+      <div className="content">
         {sortedShirts.map((shirt) => {
           return (
             <Card

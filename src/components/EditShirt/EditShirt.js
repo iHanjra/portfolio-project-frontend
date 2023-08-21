@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { updateShirtById, getShirtById } from "../Api/API";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "react-bootstrap"
 import "./EditShirt.css";
 
 function EditShirt() {
@@ -48,11 +49,13 @@ function EditShirt() {
     }
   }
   return (
-    <div className="create-shirt">
+    <div className="edit-form-container">
       <h2>Edit shirt</h2>
-      <form className="create-shirt-form" onSubmit={handleOnSubmit}>
-        <div className="create-name">
-          <label htmlFor="name">Name</label>
+      <form className="edit-container-form" onSubmit={handleOnSubmit}>
+        <div className="edit-container-input">
+          <label htmlFor="name">
+            <strong>Name</strong>
+          </label>
           <br />
           <input
             placeholder="Name"
@@ -64,8 +67,10 @@ function EditShirt() {
           />
         </div>
 
-        <div className="create-color">
-          <label htmlFor="color">Color</label>
+        <div className="edit-container-input">
+          <label htmlFor="color">
+            <strong>Color</strong>
+          </label>
           <br />
           <input
             placeholder="Color"
@@ -77,8 +82,10 @@ function EditShirt() {
           />
         </div>
 
-        <div className="create-size">
-          <label htmlFor="size">Size</label>
+        <div className="edit-container-input">
+          <label htmlFor="size">
+            <strong>Size</strong>
+          </label>
           <br />
           <select
             id="size"
@@ -93,9 +100,11 @@ function EditShirt() {
             ))}
           </select>
         </div>
-        
-        <div className="create-price">
-          <label htmlFor="price">Price</label>
+
+        <div className="edit-container-input">
+          <label htmlFor="price">
+            <strong>Price</strong>
+          </label>
           <br />
           <input
             placeholder="Price"
@@ -107,8 +116,10 @@ function EditShirt() {
           />
         </div>
 
-        <div className="create-store">
-          <label htmlFor="store">Store</label>
+        <div className="edit-container-input">
+          <label htmlFor="store">
+            <strong>Store</strong>
+          </label>
           <br />
           <input
             placeholder="Store"
@@ -120,8 +131,10 @@ function EditShirt() {
           />
         </div>
 
-        <div className="create-is_favorite">
-          <label htmlFor="is_favorite">Favorite</label>
+        <div className="edit-container-input">
+          <label htmlFor="is_favorite">
+            <strong>Favorite</strong>
+          </label>
           <br />
           <input
             type="checkbox"
@@ -131,8 +144,10 @@ function EditShirt() {
           />
         </div>
 
-        <div className="create-image">
-          <label htmlFor="image">Image</label>
+        <div className="edit-container-input">
+          <label htmlFor="image">
+            <strong>Image</strong>
+          </label>
           <br />
           <input
             placeholder="image"
@@ -143,7 +158,13 @@ function EditShirt() {
           />
         </div>
 
-        <button className="edit-button">EDIT SHIRT</button>
+        <Button
+          style={{ margin: "10px" }}
+          type="submit"
+          className="edit-button"
+        >
+          <strong>EDIT SHIRT</strong>
+        </Button>
       </form>
     </div>
   );

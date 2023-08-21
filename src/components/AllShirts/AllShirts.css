@@ -5,6 +5,7 @@
 
 .container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .content {
@@ -15,7 +16,7 @@
     }
 
 .card {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .filter-sizes {
@@ -40,4 +41,26 @@
 .shirt-link:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        padding: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
