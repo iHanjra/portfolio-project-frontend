@@ -69,6 +69,7 @@ function Shirt() {
             rel="noopener noreferrer"
             className="store-link"
           >
+            <span>Store</span>
             {shirt?.store}
           </a>
         </div>
