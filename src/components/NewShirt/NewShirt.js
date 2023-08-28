@@ -25,15 +25,15 @@ function NewShirt() {
       if (response.status === 200) {
         console.log(shirt)
         alert("Shirt Created");
-        // setShirt({
-        //   name: "",
-        //   color: "",
-        //   size: "",
-        //   price: "",
-        //   store: "",
-        //   is_favorite: false,
-        //   image: "",
-        // });
+        setShirt({
+          name: "",
+          color: "",
+          size: "",
+          price: "",
+          store: "",
+          is_favorite: false,
+          image: "",
+        });
         navigate(`/shirts/${response.data.data.id}`);
       }
     } catch (error) {
@@ -43,10 +43,12 @@ function NewShirt() {
   
   return (
     <div className="create-form-container">
-      <h2>Add new shirt</h2>
+      <h2>Add a new shirt</h2>
       <form className="create-container-form" onSubmit={handleOnSubmit}>
         <div className="create-container-input">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">
+            <strong>Name</strong>
+          </label>
           <br />
           <input
             placeholder="Name"
@@ -59,7 +61,9 @@ function NewShirt() {
         </div>
 
         <div className="create-container-input">
-          <label htmlFor="color">Color</label>
+          <label htmlFor="color">
+            <strong>Color</strong>
+          </label>
           <br />
           <input
             placeholder="Color"
@@ -72,7 +76,9 @@ function NewShirt() {
         </div>
 
         <div className="create-container-input">
-          <label htmlFor="size">Size</label>
+          <label htmlFor="size">
+            <strong>Size</strong>
+          </label>
           <br />
           <select
             id="size"
@@ -90,7 +96,9 @@ function NewShirt() {
         </div>
 
         <div className="create-container-input">
-          <label htmlFor="price">Price</label>
+          <label htmlFor="price">
+            <strong>Price</strong>
+          </label>
           <br />
           <input
             placeholder="Price"
@@ -103,7 +111,9 @@ function NewShirt() {
         </div>
 
         <div className="create-container-input">
-          <label htmlFor="store">Store</label>
+          <label htmlFor="store">
+            <strong>Store</strong>
+          </label>
           <br />
           <input
             placeholder="Store"
@@ -116,7 +126,9 @@ function NewShirt() {
         </div>
 
         <div className="create-container-input">
-          <label htmlFor="is_favorite">Favorite</label>
+          <label htmlFor="is_favorite">
+            <strong>Favorite</strong>
+          </label>
           <br />
           <input
             type="checkbox"
@@ -127,7 +139,9 @@ function NewShirt() {
         </div>
 
         <div className="create-container-input">
-          <label htmlFor="image">Image</label>
+          <label htmlFor="image">
+            <strong>Image</strong>
+          </label>
           <br />
           <input
             placeholder="Image"
@@ -143,7 +157,7 @@ function NewShirt() {
           type="submit"
           className="create-button"
         >
-          ADD NEW SHIRT
+          <strong>ADD NEW SHIRT</strong>
         </Button>
       </form>
     </div>
