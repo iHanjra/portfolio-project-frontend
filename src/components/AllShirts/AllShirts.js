@@ -98,9 +98,7 @@ function AllShirts() {
       compareResult = a.size.localeCompare(b.size);
     } else if (sortCriteria === "low-price") {
       compareResult = parseFloat(a.price) - parseFloat(b.price);
-    } else if (sortCriteria === "high-price") {
-      compareResult = parseFloat(b.price) - parseFloat(a.price);
-    }
+    } 
     return sortOrder === "asc" ? compareResult : -compareResult;
   });
 
@@ -108,6 +106,10 @@ function AllShirts() {
     (accumulator, shirt) => accumulator + Number(shirt.price),
     0
   );
+
+  const formatPriceWithCommas = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
 
   return (
     <div className="container">
@@ -121,7 +123,6 @@ function AllShirts() {
           <option value="color">Color</option>
           <option value="size">Size</option>
           <option value="low-price">Price: low to high</option>
-          <option value="high-price">Price: high to low</option>
         </select>
         <Button
           className="sort-button"
@@ -165,7 +166,7 @@ function AllShirts() {
               </option>
             ))}
           </select>
-          <h4 className="total">Total Price of Shirts: ${total.toFixed(2)}</h4>
+          <h4 className="total">Total Price of Shirts: ${formatPriceWithCommas(total.toFixed(2))}</h4>
         </div>
       </div>
 
@@ -194,7 +195,7 @@ function AllShirts() {
                   {shirt.is_favorite && <> 🥚</>}
                 </Card.Link>
                 <Card.Text>Size: {shirt.size}</Card.Text>
-                <Card.Text>${shirt.price}</Card.Text>
+                <Card.Text>${formatPriceWithCommas(shirt.price)}</Card.Text>
               </Card.Body>
             </Card>
           );

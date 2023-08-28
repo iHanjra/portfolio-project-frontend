@@ -3,7 +3,7 @@ import "./Home.css";
 
 function Home() {
   return (
-    <div class="home">
+    <div className="home">
       <h2>Welcome to Humpty Dumb Tees</h2>
       <h3>A place to catalogue your poor fashion choices</h3>
       <a href="/shirts">

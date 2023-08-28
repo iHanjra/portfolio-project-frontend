@@ -23,16 +23,17 @@ function NewShirt() {
     try {
       let response = await createShirt({ ...shirt, is_favorite: isChecked });
       if (response.status === 200) {
+        console.log(shirt)
         alert("Shirt Created");
-        setShirt({
-          name: "",
-          color: "",
-          size: "",
-          price: "",
-          store: "",
-          is_favorite: false,
-          image: "",
-        });
+        // setShirt({
+        //   name: "",
+        //   color: "",
+        //   size: "",
+        //   price: "",
+        //   store: "",
+        //   is_favorite: false,
+        //   image: "",
+        // });
         navigate(`/shirts/${response.data.data.id}`);
       }
     } catch (error) {
